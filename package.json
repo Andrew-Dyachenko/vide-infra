@@ -9,6 +9,7 @@
 		"build": "parcel build index.html --dist-dir build/ --public-url ./ --no-scope-hoist --no-optimize"
 	},
 	"dependencies": {
-		"jquery": "3.7.1"
+		"jquery": "3.7.1",
+		"jquery-validation": "1.20.0"
 	}
 }
