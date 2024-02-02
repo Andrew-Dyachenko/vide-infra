@@ -1,35 +1,38 @@
 import $ from "jquery";
 
-// jQuery hover plugin
-$.fn.hoverPlugin = function (options) {
+// jQuery sticker plugin
+$.fn.stickerPlugin = function (options) {
 	// Default plugin settings
 	const defaults = {
-		hoverClass: "hovered",
+		stickerClass: "stickered",
 	};
 
 	// Merge default settings with provided options
 	const settings = $.extend({}, defaults, options);
 
+	const stickerHandler = (element) => {
+		const scrollTop = $(window).scrollTop();
+
+		if (scrollTop) {
+			// Set class
+			element.addClass(settings.stickerClass);
+		} else {
+			// Unset class
+			element.removeClass(settings.stickerClass);
+		}
+	};
+
 	// Plugin initialization logic
-	const init = function () {
+	const init = () => {
 		// Your plugin initialization logic here
-		$(this)
-			.on("mouseenter", function () {
-				// Set class
-				$(this).addClass(settings.hoverClass);
-			})
-			.on("mouseleave", function () {
-				// Unset class
-				$(this).removeClass(settings.hoverClass);
-			});
+		$(window).on("scroll", stickerHandler.bind(null, $(this)));
 	};
 
 	// Plugin destruction logic
 	const destroy = function () {
-		console.log("Destroying examplePlugin on:", this);
-
 		// Remove class & remove eventListener
-		$(this).removeClass(settings.hoverClass).off("mouseenter mouseleave");
+		$(this).removeClass(settings.stickerClass);
+		$(window).off("scroll", stickerHandler);
 	};
 
 	// Depending on the provided command, call the corresponding method

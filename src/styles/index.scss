@@ -44,6 +44,16 @@ body {
 	}
 }
 
+.form {
+	&__group {
+		display: flex;flex-direction: column;
+	}
+
+	&__submit {
+		align-self: end;
+	}
+}
+
 .app {
 	$-app: &;
 	min-height: 100svh;
@@ -105,7 +115,8 @@ body {
 
 	&__form {
 		display: flex;
-		flex-wrap: wrap;
+		flex-wrap: wrap;;
+		align-items: center;
 		justify-content: center;
 		align-content: center;
 		padding: 1rem;
@@ -122,6 +133,17 @@ body {
 	}
 
 	&__text {
+		transform: translateX(-10%);
+		transition-property: opacity, transform;
+		transition-duration: 1s;
+		transition-timing-function: ease-out;
+		opacity: 0;
+
+		&.visible {
+			transform: translateX(0%);
+			opacity: 1;
+		}
+
 		@media (min-width: 768px) {
 			width: calc(50% - 0.5rem);
 		}
@@ -133,5 +155,10 @@ body {
 
 	&__picture-img {
 		max-width: 100%;
+		height: auto;
+	}
+
+	&__paragraph {
+		margin: 0 0 1rem;
 	}
 }
