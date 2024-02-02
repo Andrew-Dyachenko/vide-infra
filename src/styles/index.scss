@@ -38,6 +38,7 @@ body {
 }
 
 .header {
+	min-height: 4.5rem;
 	&__btn {
 		min-width: math.div(141, 16) + 0rem; // ~ 141px
 	}
@@ -48,7 +49,8 @@ body {
 	min-height: 100svh;
 
 	&__button-wrapper {
-		&--hover {
+		position: fixed;
+		&--stickered {
 			#{$-app} {
 				&__button {
 					clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); // 1 - horizontal, 2 - vertical

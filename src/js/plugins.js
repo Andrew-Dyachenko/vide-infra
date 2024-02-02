@@ -1,6 +1,6 @@
 // Importing jQuery and custom plugins for hover and click functionality
 import $ from "jquery";
-import "./jquery-plugins/hover";
+import "./jquery-plugins/sticker";
 import "./jquery-plugins/click";
 
 // Function to call plugins on elements with data-plugin attribute
