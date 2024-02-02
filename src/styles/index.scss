@@ -1,12 +1,17 @@
 @use 'sass:color';
-$cod-gray: #1e1e1e;
+@use 'sass:math';
+
 :root {
 	-webkit-text-size-adjust: 100%;
 	font-size: 16px;
+	line-height: 1.5;
+
 	--white: #fff;
 	--black: #000;
 	--cod-gray: #{color.change(#000, $lightness: 11.8033989%)};
 	--silver: #c4c4c4;
+	--purple-heart: #771cbe;
+
 	--body-bg-light: var(--white);
 	--body-bg-dark: var(--cod-gray);
 	--body-color-light: var(--black);
@@ -32,8 +37,44 @@ body {
 	box-sizing: border-box;
 }
 
+.header {
+	&__btn {
+		min-width: math.div(141, 16) + 0rem; // ~ 141px
+	}
+}
+
 .app {
+	$-app: &;
 	min-height: 100svh;
+
+	&__button-wrapper {
+		&--hover {
+			#{$-app} {
+				&__button {
+					clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); // 1 - horizontal, 2 - vertical
+					transform: scale(0.6);
+				}
+			}
+		}
+	}
+
+	&__button {
+		display: block;
+		color: var(--white);
+		background-color: var(--purple-heart);
+		border-radius: 100rem;
+		border: 0;
+		font-size: 1rem;
+		padding: 0;
+		padding: 0.5rem;
+		min-height: math.div(40, 16) + 0rem;
+		transition-property: clip-path transform;
+		transition-duration: 1s;
+		transition-timing-function: ease;
+		transform: scale(1);
+		transform-origin: center center;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); // 1 - horizontal, 2 - vertical
+	}
 
 	&__container {
 		margin: 0 auto;
@@ -86,17 +127,9 @@ body {
 
 	&__picture {
 		display: block;
-
-		// @media (min-width: 768px) {
-		// 	max-width: 100%;
-		// }
 	}
 
 	&__picture-img {
 		max-width: 100%;
-
-		// @media (min-width: 768px) {
-		// 	max-width: 100%;
-		// }
 	}
 }

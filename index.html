@@ -20,15 +20,15 @@
 		<div class="app">
 			<div class="app__container">
 				<div class="app__frame app__frame--1">
-					<header class="app__header">
-						<button
-							class="app__button"
+					<header class="header app__header">
+						<div
+							class="app__button-wrapper"
 							data-plugin="hoverPlugin clickPlugin"
-							data-hover-class="app__button--hover"
-							data-clicked-class="app__button--clicked"
+							data-hover-class="app__button-wrapper--hover"
+							data-click-class="app__button-wrapper--clicked"
 						>
-							Button
-						</button>
+							<button class="app__button header__btn">Hello world</button>
+						</div>
 					</header>
 					<form class="form app__form">
 						<div class="form__group">
@@ -69,7 +69,13 @@
 							<source srcset="src/img/image-1280.jpg" media="(min-width: 769px)" type="image/jpeg" />
 
 							<!-- Fallback for older browsers -->
-							<img class="app__picture-img" src="src/img/image-512.jpg" alt="Image description" />
+							<img
+								class="app__picture-img"
+								src="src/img/image-512.jpg"
+								width="512"
+								height="342"
+								alt="Image description"
+							/>
 						</picture>
 					</div>
 					<div class="app__text">
