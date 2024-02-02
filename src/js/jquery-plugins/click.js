@@ -2,10 +2,9 @@ import $ from "jquery";
 
 // jQuery click plugin
 $.fn.clickPlugin = function (options) {
-	console.log("options: ", options);
 	// Default plugin settings
 	const defaults = {
-		clickedClass: "clicked",
+		clickClass: "clicked",
 	};
 
 	// Merge default settings with provided options
@@ -13,9 +12,7 @@ $.fn.clickPlugin = function (options) {
 
 	// Plugin initialization logic
 	const init = function () {
-		// console.log("Initializing examplePlugin on:", this);
-		console.log("$(this): ", $(this));
-		// Your plugin initialization logic here
+		// Toggle class
 		$(this).on("click", function () {
 			$(this).toggleClass("clicked");
 		});
@@ -23,10 +20,8 @@ $.fn.clickPlugin = function (options) {
 
 	// Plugin destruction logic
 	const destroy = function () {
-		console.log("Destroying examplePlugin on:", this);
-
-		// Your plugin destruction logic here
-		$(this).removeClass(settings.clickedClass).off("click");
+		// Remove class & remove eventListener
+		$(this).removeClass(settings.clickClass).off("click");
 	};
 
 	// Depending on the provided command, call the corresponding method

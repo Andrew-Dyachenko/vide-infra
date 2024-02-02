@@ -2,10 +2,9 @@ import $ from "jquery";
 
 // jQuery hover plugin
 $.fn.hoverPlugin = function (options) {
-	console.log('options: ', options);
 	// Default plugin settings
 	const defaults = {
-		hoverClass: "hovered"
+		hoverClass: "hovered",
 	};
 
 	// Merge default settings with provided options
@@ -13,14 +12,14 @@ $.fn.hoverPlugin = function (options) {
 
 	// Plugin initialization logic
 	const init = function () {
-		// console.log("Initializing examplePlugin on:", this);
-		console.log('$(this): ',$(this));
 		// Your plugin initialization logic here
 		$(this)
 			.on("mouseenter", function () {
+				// Set class
 				$(this).addClass(settings.hoverClass);
 			})
 			.on("mouseleave", function () {
+				// Unset class
 				$(this).removeClass(settings.hoverClass);
 			});
 	};
@@ -29,10 +28,8 @@ $.fn.hoverPlugin = function (options) {
 	const destroy = function () {
 		console.log("Destroying examplePlugin on:", this);
 
-		// Your plugin destruction logic here
-		$(this)
-			.removeClass(settings.hoverClass)
-			.off("mouseenter mouseleave");
+		// Remove class & remove eventListener
+		$(this).removeClass(settings.hoverClass).off("mouseenter mouseleave");
 	};
 
 	// Depending on the provided command, call the corresponding method
