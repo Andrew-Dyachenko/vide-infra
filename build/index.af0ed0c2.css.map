@@ -1,0 +1,1 @@
+{"mappings":"AAEA","sources":["src/styles/light.scss"],"sourcesContent":["@use 'sass:color';\n\nbody {\n\tbackground-color: var(--body-bg-light);\n\tcolor: var(--body-color-light);\n}\n"],"names":[],"version":3,"file":"index.af0ed0c2.css.map"}
