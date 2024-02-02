@@ -1,9 +1,13 @@
 {
 	"devDependencies": {
 		"@biomejs/biome": "1.5.3",
+		"@parcel/transformer-sass": "^2.11.0",
 		"parcel": "2.11.0"
 	},
 	"scripts": {
 		"start": "parcel index.html"
+	},
+	"dependencies": {
+		"jquery": "3.7.1"
 	}
 }
