@@ -10,4 +10,9 @@ $(() => {
 	// Destroy all plugins
 	// destroyPlugins();
 	// setTimeout(destroyPlugins, 5000);
+
+	// Prevent form submit
+	$('.app__form').on('submit', e => {
+		e.preventDefault();
+	})
 });

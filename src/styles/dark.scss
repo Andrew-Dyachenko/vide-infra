@@ -1,0 +1,6 @@
+@use 'sass:color';
+
+body {
+	background-color: var(--body-bg-dark);
+	color: var(--body-color-dark);
+}
